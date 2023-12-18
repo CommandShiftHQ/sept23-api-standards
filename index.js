@@ -44,9 +44,15 @@ app.get("/v1/hellojan24", (request, response) => {
 
 /**
  * @openapi
- * /v1/hello/:cohort:
+ * /v1/cohorts/{cohort}/hello:
  *   get:
  *     description: Returns a string with a cohort
+ *     parameters:
+ *       - in: path
+ *         name: cohort
+ *         schema:
+ *           type: string
+ *           example: Sept 2023
  *     responses:
  *       200:
  *         description: Returns a successful response with a short greeting for passed cohort name.
@@ -61,9 +67,15 @@ app.get("/v1/cohorts/:cohort/hello", (request, response) => {
 
 /**
  * @openapi
- * /v2/hello/:cohort:
+ * /v2/cohorts/{cohort}/hello:
  *   get:
  *     description: Returns a long hello string with a cohort
+ *     parameters:
+ *       - in: path
+ *         name: cohort
+ *         schema:
+ *           type: string
+ *           example: Sept 2023
  *     responses:
  *       200:
  *         description: Returns a successful response with a long greetings for passed cohort name.
@@ -76,4 +88,4 @@ app.get("/v2/cohorts/:cohort/hello", (request, response) => {
     response.status(200).send(`Greetings fellow one, you belong to the ${cohortValue} cohort, are you not?!`);
 })
 
-app.listen(3000, () => { console.log("Server is running on port 3000") });
+app.listen(3000, () => { console.log("Server is running on port 3000. Enjoy the Greetings API!") });
